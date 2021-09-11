@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { WeatherHeader } from './components/WeatherHeader';
+import { WeatherHero } from './components/WeatherHero';
+import { WeatherInfo } from './components/WeatherInfo';
+
+const WeatherLocation = [
+  {
+    day:'dia',
+    month:'mes',
+    hour: 'hora',
+    place: 'lugar',
+    weather: 'soleado',
+    temp: '26 C'
+  }
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      
+      <WeatherHeader/>
+      
+      <WeatherHero>
+        {WeatherLocation.map(data => (
+          <WeatherInfo
+            day = {data.day}
+            month = {data.month}
+            hour = {data.hour}
+            place= {data.place}
+            weather = {data.weather}
+            temp = {data.temp}
+          />
+        ))}
+      </WeatherHero>
+    </React.Fragment>
   );
 }
 
