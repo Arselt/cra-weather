@@ -2,27 +2,26 @@ import React from 'react';
 
 function WeatherInfo(props){
     return(
-        <section>
-            <section>
+        <section className="WeatherInfo">
+            <section className="WeatherInfo__Calendar">
                 <p>
-                    {props.day}
+                    {props.month} / {props.day}
                 </p>
                 <p>
-                    {props.month}
+                    {props.hour}
                 </p>
             </section>
-            <p>
-                {props.hour}
-            </p>
-            <p>
-                {props.place}
-            </p>
-            <p>
-                {props.weather}
-            </p>
-            <p>
-                {props.temp}
-            </p>
+            <section className="WeatherInfo__Weather">
+                <h1 className="Weather__location">
+                    {props.place}
+                </h1>
+                <span className="Weather__icon">
+                    ☀️
+                </span>
+                <h1 className="Weather__weather">
+                    {props.weather} {props.temp}
+                </h1>
+            </section>
         </section>
     );
 }

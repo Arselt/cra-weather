@@ -2,17 +2,13 @@ import React from "react";
 
 function WeatherHeader() {
     return(
-        <header>
-            <section>
-                <input type="text">
-                </input>
-                <button type="submit">
-                    🔎
-                </button>
+        <header className="WeatherHeader">
+            <section className="WeatherHeader__Search">
+                <input type="text" placeholder="Search your location"></input>
             </section>
-            <nav>
-                Menu
-            </nav>
+            <span className="WeatherHeader__Menu">
+                menu
+            </span>
         </header>
     );
 }
