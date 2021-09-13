@@ -1,4 +1,5 @@
 import React from "react";
+import { Menu } from './menu/Menu';
 
 function WeatherHeader() {
     return(
@@ -6,9 +7,7 @@ function WeatherHeader() {
             <section className="WeatherHeader__Search">
                 <input type="text" placeholder="Search your location"></input>
             </section>
-            <span className="WeatherHeader__Menu">
-                menu
-            </span>
+            <Menu />
         </header>
     );
 }

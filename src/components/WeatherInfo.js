@@ -1,4 +1,5 @@
 import React from 'react';
+import 'weather-icons/css/weather-icons.css'
 
 function WeatherInfo(props){
     return(
@@ -15,9 +16,7 @@ function WeatherInfo(props){
                 <h1 className="Weather__location">
                     {props.place}
                 </h1>
-                <span className="Weather__icon">
-                    ☀️
-                </span>
+                <i class="wi wi-day-sunny"></i>
                 <h1 className="Weather__weather">
                     {props.weather} {props.temp}
                 </h1>

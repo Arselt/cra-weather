@@ -21,7 +21,6 @@ function App() {
       
       <WeatherHeader/>
       
-      <GetWeather />
       <WeatherHero>
         {WeatherLocation.map(data => (
           <WeatherInfo
