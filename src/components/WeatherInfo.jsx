@@ -6,19 +6,19 @@ function WeatherInfo(props){
         <section className="WeatherInfo">
             <section className="WeatherInfo__Calendar">
                 <p>
-                    {props.month} / {props.day}
+                    {/* date: month and day */}
                 </p>
                 <p>
-                    {props.hour}
+                    {/* hour */}
                 </p>
             </section>
             <section className="WeatherInfo__Weather">
                 <h1 className="Weather__location">
-                    {props.place}
+                    {/* place */}
                 </h1>
-                <i class="wi wi-day-sunny"></i>
+                <i className="wi wi-day-sunny"></i>
                 <h1 className="Weather__weather">
-                    {props.weather} {props.temp}
+                    {/* weather and temp */}
                 </h1>
             </section>
         </section>
