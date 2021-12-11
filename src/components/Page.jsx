@@ -9,10 +9,10 @@ import useForecast from '../hooks/useForecast';
 
 function Page() {
 
-  	const { isError,isLoading, forecast } = useForecast();
+  	const { isError,isLoading, forecast, submitRequest } = useForecast();
 
   	const onSubmit = (value) => {
-    	console.log({value});
+    	submitRequest(value)
   	}
 
 	return (
@@ -22,9 +22,11 @@ function Page() {
 				<WeatherSearch submitSearch={onSubmit}/>
 			</header>
 			
-			{isError && <Error message={isError} />}
-			{isLoading && <Loader/>}
-			{forecast && <Forecast/>}
+			<div className='StateChanger'>
+				{isError && <Error message={isError} />}
+				{isLoading && <Loader/>}
+				{forecast && <Forecast/>}
+			</div>
 
 		</React.Fragment>
 	);

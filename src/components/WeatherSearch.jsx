@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import PropTypes from 'prop-types';
 
 const WeatherSearch = ({ submitSearch }) => {
     const [location, setLocation] = useState('')
@@ -30,5 +31,9 @@ const WeatherSearch = ({ submitSearch }) => {
         </form>
     );
 };
+
+WeatherSearch.propTypes = {
+    submitSearch: PropTypes.func.isRequired,
+}
 
 export default WeatherSearch

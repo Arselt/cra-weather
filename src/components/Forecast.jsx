@@ -1,7 +1,7 @@
 import React from "react";
 import { WeatherInfo } from "./WeatherInfo";
 
-function Forecast(props) {
+function Forecast() {
     return(
         <section className="WeatherHero">
             <WeatherInfo/>

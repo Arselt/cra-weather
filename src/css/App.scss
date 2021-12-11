@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 0;
     h1 {
         font-size: 42px;
         margin: 0;
@@ -44,6 +44,13 @@
         text-align:center;
         transition: all 0.15s;
     }
+}
+
+.StateChanger{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 360px;
 }
 
 .WeatherHero {
