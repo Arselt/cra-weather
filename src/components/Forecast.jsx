@@ -1,12 +1,22 @@
 import React from "react";
-import { WeatherInfo } from "./WeatherInfo";
+import PropTypes from "prop-types";
 
-function Forecast() {
-    return(
-        <section className="WeatherHero">
-            <WeatherInfo/>
-        </section>
-    );
-}
+import CurrentDay from './CurrentDay';
+// import CurrentDayDescription from './CurrentDayDescription';
+// import UpcomingDaysForecast from './UpcomingDaysForecast';
+
+const Forecast = ({ forecast }) => (
+    <section className="WeatherHero">
+        <CurrentDay {...forecast.currentDay} />
+    </section>
+);
+
+Forecast.propTypes = {
+    forecast: PropTypes.shape({
+        currentDay: PropTypes.object,
+        currentDayDetails: PropTypes.array,
+        upcomingDays: PropTypes.array,
+    }),
+};
 
 export default Forecast;

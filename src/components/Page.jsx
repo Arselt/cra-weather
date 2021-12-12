@@ -9,7 +9,7 @@ import useForecast from '../hooks/useForecast';
 
 function Page() {
 
-  	const { isError,isLoading, forecast, submitRequest } = useForecast();
+  	const { isError, isLoading, forecast, submitRequest } = useForecast();
 
   	const onSubmit = (value) => {
     	submitRequest(value)
@@ -25,9 +25,15 @@ function Page() {
 			<div className='StateChanger'>
 				{isError && <Error message={isError} />}
 				{isLoading && <Loader/>}
-				{forecast && <Forecast/>}
+				{forecast && <Forecast forecast={forecast}/>}
 			</div>
-
+			
+			<footer>
+				<p>
+					Hey, you can search for famous cities Weather Forecast here.
+					This is a Single Page Aplication built on Create-React-App using the MetaWeather API with axios and formatting dates with moment.js.
+				</p>
+			</footer>
 		</React.Fragment>
 	);
 }
