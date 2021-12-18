@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import latinize from "latinize";
 
 // Helpers
 import getCurrentDayForecast from '../helpers/getCurrentDayForecast.js';
@@ -10,6 +11,7 @@ const BASE_URL = "https://www.metaweather.com/api/location";
 const CORS_FIX = "https://the-ultimate-api-challenge.herokuapp.com"
 const REQUEST_URL = `${CORS_FIX}/${BASE_URL}`
 
+// 0. Separate location string with diacritics and gets rid of diacritics
 // 1. Get WOEID
 // 2. Get Forecast with the WOEID
 // 3. Format the data with the helpers
@@ -18,6 +20,19 @@ const useForecast = () => {
     const [isError, setError] = useState(false)
     const [isLoading, setLoading] = useState(false)
     const [forecast, setForecast] = useState(null)
+
+    const getLocation = location => {
+        switch (location) {
+            case "Bogota":
+            case "bogota":
+                return location = "Bogotá";
+            case "Montreal":
+            case "montreal":
+                return location = "Montréal";
+            default:
+                return latinize(location); // gets rid of diacritics
+        }
+    }
 
     const getWoeid = async location => {
         const { data } = await axios(`${REQUEST_URL}/search`, { params: { query: location } });
@@ -55,9 +70,11 @@ const useForecast = () => {
     const submitRequest = async location => {
         setLoading(true);
         setError(false);
-        setForecast(false)
+        setForecast(false);
 
-        const response = await getWoeid(location);
+        const bestLocation = getLocation(location);
+
+        const response = await getWoeid(bestLocation);
         if (!response?.woeid) return;
 
         const data = await getForecastData(response.woeid);
