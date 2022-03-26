@@ -8,7 +8,7 @@ import getCurrentDayDetailedForecast from '../helpers/getCurrentDayDetailedForec
 import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 
 const BASE_URL = "https://www.metaweather.com/api/location";
-const CORS_FIX = "https://the-ultimate-api-challenge.herokuapp.com"
+const CORS_FIX = "https://cors-arselt.herokuapp.com"
 const REQUEST_URL = `${CORS_FIX}/${BASE_URL}`
 
 // 0. Separate location string with diacritics and gets rid of diacritics
